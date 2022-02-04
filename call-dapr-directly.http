@@ -1,0 +1,7 @@
+# you get the Dapr port from the terminal when it runs
+GET http://localhost:64495/v1.0/invoke/node-subscriber/method/dapr/subscribe
+
+GET http://localhost:3000/dapr/subscribe
+
+GET http://localhost:64495/v1.0/state/statestore
+dapr-app-id: node-subscriber
