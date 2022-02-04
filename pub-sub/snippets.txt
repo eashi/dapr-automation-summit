@@ -1,26 +1,27 @@
-// const publishUrl = `${daprUrl}/publish/${pubsubName}/${req.body.messageType}?metadata.rawPayload=true`;
+const publishUrl = `${daprUrl}/publish/${pubsubName}/${req.body.messageType}?metadata.rawPayload=true`;
 -------------------------
-// app.get('/dapr/subscribe', (_req, res) => {
-//     res.json([
-//         {
-//             pubsubname: "pubsub",
-//             topic: "A",
-//             routes: {
-//                 rules: [
-//                     {
-//                         match: 'event.data.message == "emad"',
-//                         path: '/Name'
-//                     }
-//                 ],
-//                 default: '/A'
-//             }
-//         },
-//         {
-//             pubsubname: "pubsub",
-//             topic: "B"
-//         }
-//     ]);
-// });
+app.get('/dapr/subscribe', (_req, res) => {
+    res.json([
+        {
+            pubsubname: "pubsub",
+            topic: "orders",
+            routes: {
+                rules: [
+                    {
+                        match: 'event.data.message == "computer"',
+                        path: '/processComputerOrders'
+                    }
+                ],
+                default: '/processOrders'
+            }
+        },
+        {
+            pubsubname: "pubsub",
+            topic: "invoices",
+            route: "processInvoices"
+        }
+    ]);
+});
 ----------------------------------
 # apiVersion: dapr.io/v1alpha1
 # kind: Component

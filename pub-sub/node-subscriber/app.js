@@ -16,29 +16,30 @@ app.get('/dapr/subscribe', (_req, res) => {
     res.json([
         {
             pubsubname: "pubsub",
-            topic: "A",
-            route: "A"
+            topic: "orders",
+            route: "processOrders"
         },
         {
             pubsubname: "pubsub",
-            topic: "B",
-            route: "B"
+            topic: "invoices",
+            route: "processInvoices"
         }
     ]);
 });
 
-app.post('/A', (req, res) => {
-    console.log("A: ", req.body);
+
+app.post('/processOrders', (req, res) => {
+    console.log("processOrders: ", req.body);
     res.sendStatus(200);
 });
 
-app.post('/B', (req, res) => {
-    console.log("B: ", req.body);
+app.post('/processInvoices', (req, res) => {
+    console.log("processInvoices: ", req.body);
     res.sendStatus(200);
 });
 
-app.post('/Name', (req, res) => {
-    console.log("Name: ", req.body);
+app.post('/processComputerOrders', (req, res) => {
+    console.log("processComputerOrders: ", req.body);
     res.sendStatus(200);
 });
 

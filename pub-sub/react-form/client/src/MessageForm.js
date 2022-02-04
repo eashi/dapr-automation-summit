@@ -38,7 +38,7 @@ export class MessageForm extends React.Component {
 
     getInitialState = () => {
       return {
-        messageType: "A",
+        messageType: "orders",
         message: ""
       };
     }
@@ -50,8 +50,8 @@ export class MessageForm extends React.Component {
         <div className="form-group">
           <label>Select Message Type</label>
           <select className="custom-select custom-select-lg mb-3" name="messageType" onChange={this.handleInputChange} value={this.state.messageType}>
-            <option value="A">A</option>
-            <option value="B">B</option>
+            <option value="orders">orders</option>
+            <option value="invoices">invoices</option>
             <option value="C">C</option>
           </select>
         </div>
